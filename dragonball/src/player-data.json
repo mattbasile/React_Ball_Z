@@ -1,0 +1,126 @@
+{
+    "characters":[
+        {
+            "Heros":[
+                {
+                    "name": "Goku",
+                    "health": 50,
+                    "saiyanPwr": 20,
+                    "saiyanName": "Kaio-Ken Finish",
+                    "attackPwr": 10,
+                    "attackName": "Ki Blast",
+                    "image": "img/goku.png",
+                    "hits": 0,
+                    "mainColor": "#F85B1A",
+                    "secondColor": "#072083",
+                    "healColor": "#A2F5BF",
+                    "healColorDark": "#1F9D55"
+                },
+                {
+                    "name": "Master Roshi",
+                    "health": 50,
+                    "saiyanPwr": 20,
+                    "saiyanName": "Kamehameha",
+                    "attackPwr": 10,
+                    "attackName": "Ki Blast",
+                    "image": "img/roshi.png",
+                    "hits": 0,
+                    "mainColor": "#E5A25D",
+                    "secondColor": "#423C65",
+                    "healColor": "#A2F5BF",
+                    "healColorDark": "#1F9D55"
+                },
+                {
+                    "name": "Piccolo",
+                    "health": 50,
+                    "saiyanPwr": 20,
+                    "saiyanName": "Explosive Breath Cannon",
+                    "attackPwr": 10,
+                    "attackName": "Ki Blast",
+                    "image": "img/piccolo.png",
+                    "hits": 0,
+                    "mainColor": "#77C73C",
+                    "secondColor": "#5A1472",
+                    "healColor": "#A2F5BF",
+                    "healColorDark": "#1F9D55"
+                },
+                {
+                    "name": "Krillin",
+                    "health": 50,
+                    "saiyanPwr": 20,
+                    "saiyanName": "Kamehameha",
+                    "attackPwr": 10,
+                    "attackName": "Ki Blast",
+                    "image": "img/krillin.png",
+                    "hits": 0,
+                    "mainColor": "#F85B1A",
+                    "secondColor": "#072083",
+                    "healColor": "#A2F5BF",
+                    "healColorDark": "#1F9D55"
+                }
+            ]
+        },
+        {
+            "Villains":[
+                {
+                    "name": "Frieza",
+                    "health": 50,
+                    "saiyanPwr": 20,
+                    "saiyanName": "Death Ball",
+                    "attackPwr": 10,
+                    "attackName": "Ki Blast",
+                    "image": "img/frieza.png",
+                    "hits": 0,
+                    "mainColor": "#633183",
+                    "secondColor": "#C1D2C8",
+                    "healColor": "#A2F5BF",
+                    "healColorDark": "#1F9D55"
+                },
+                {
+                    "name": "Kid Bu",
+                    "health": 50,
+                    "saiyanPwr": 20,
+                    "saiyanName": "Death Ball",
+                    "attackPwr": 10,
+                    "attackName": "Super Kamehameha",
+                    "image": "img/kidbu.png",
+                    "hits": 0,
+                    "mainColor": "#D78792",
+                    "secondColor": "#C1D2C8",
+                    "healColor": "#A2F5BF",
+                    "healColorDark": "#1F9D55"
+                },
+                {
+                    "name": "Beerus",
+                    "health": 50,
+                    "saiyanPwr": 20,
+                    "saiyanName": "Hakai",
+                    "attackPwr": 10,
+                    "attackName": "Ki Blast",
+                    "image": "img/beerus.png",
+                    "hits": 0,
+                    "mainColor": "#A181AD",
+                    "secondColor": "#47A6DB",
+                    "healColor": "#A2F5BF",
+                    "healColorDark": "#1F9D55"
+                },
+                {
+                    "name": "Cell",
+                    "health": 50,
+                    "saiyanPwr": 20,
+                    "saiyanName": "Special Beam Cannon",
+                    "attackPwr": 10,
+                    "attackName": "Ki Blast",
+                    "image": "img/cell.png",
+                    "hits": 0,
+                    "mainColor": "#517425",
+                    "secondColor": "#131930",
+                    "healColor": "#A2F5BF",
+                    "healColorDark": "#1F9D55"
+                }
+            ]
+        }
+
+    ]
+
+}
