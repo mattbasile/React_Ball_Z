@@ -56,9 +56,13 @@ class App extends Component {
     this.setState({villains: characterData.characters[1].Villains});
   }
   // Functions 
-  selectAPlayer(){
-
+  SelectPlayer = e =>{
+    e.preventDefault();
+    const chosenPlayer = e.target.name
+    const setPlayer = this.state.heros.find(player => player.name === chosenPlayer);
+    this.setState({playerOne: setPlayer})
   }
+
   computerPicksPlayer(){
 
   }
@@ -73,18 +77,22 @@ class App extends Component {
     }
   }
 
+
+
   render() {
     return (
       <div className="App ">
         <header className="App-header">
             <Route
             exact path="/"
-            render={()=> <LandingPage />}
+            render={()=> 
+            <LandingPage />}
             />     
             <Route 
             path="/select-character" 
             render={ () => 
             <SelectPlayer 
+            SelectPlayer = {this.SelectPlayer}
             heros={this.state.heros}
             villains={this.state.villains}
             playerOneIsHero={this.state.playerOneIsHero}
