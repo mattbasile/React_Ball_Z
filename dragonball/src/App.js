@@ -51,20 +51,41 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.setState({characters: characterData.characters});
-    this.setState({heros: characterData.characters[0].Heros});
-    this.setState({villains: characterData.characters[1].Villains});
+    this.setState({
+      characters: characterData.characters,
+      heros: characterData.characters[0].Heros,
+      villains: characterData.characters[1].Villains,
+      playerOne: characterData.characters[0].Heros[0],
+      playerTwo: characterData.characters[1].Villains[0],
+    });
+    
+    this.setState({});
+    this.setState({})
   }
   // Functions 
   SelectPlayer = e =>{
     e.preventDefault();
+    if(this.state.playerOneIsHero === true){
     const chosenPlayer = e.target.name
     const setPlayer = this.state.heros.find(player => player.name === chosenPlayer);
     this.setState({playerOne: setPlayer})
+    } else{
+    const chosenPlayer = e.target.name
+    const setPlayer = this.state.villains.find(player => player.name === chosenPlayer);
+    this.setState({playerOne: setPlayer})
   }
-
-  computerPicksPlayer(){
-
+}
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+  computerPicksPlayer = e =>{
+    e.preventDefault();
+    const value = this.getRandomInt(4)
+    if(this.state.playerOneIsHero){
+      this.setState({playerTwo: this.state.villains[`${value}`]})
+    } else{
+      this.setState({playerTwo: this.state.heros[`${value}`]})
+    }
   }
 
   toggleHeroOrVillain = e =>{
@@ -92,6 +113,7 @@ class App extends Component {
             path="/select-character" 
             render={ () => 
             <SelectPlayer 
+            computerPicksPlayer={this.computerPicksPlayer}
             SelectPlayer = {this.SelectPlayer}
             heros={this.state.heros}
             villains={this.state.villains}

@@ -1,4 +1,6 @@
 import React from 'react';
+//Image imports
+
 
 class SelectPlayer extends React.Component{
     
@@ -14,9 +16,11 @@ class SelectPlayer extends React.Component{
                 </div>   
                 <div>
                     <h3>Player 1: {this.props.playerOne.name}</h3>
-                    <img src={`${this.props.playerOne.image}`} alt={`Profile image of ${this.props.playerOne.name}`}/>
+                    <img src={this.props.playerOne.image} alt={`Profile image of ${this.props.playerOne.name}`}/>
                 </div>
-
+                <div>
+                    <button onClick={e => this.props.computerPicksPlayer(e)}>Ready for Battle!</button>
+                </div>
             </div>
         )
     }
