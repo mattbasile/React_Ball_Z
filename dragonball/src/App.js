@@ -10,8 +10,8 @@ import SelectPlayer from './components/SelectPlayer';
 const characterData = characters;
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
       playerOne: {
         name: "",
@@ -58,9 +58,6 @@ class App extends Component {
       playerOne: characterData.characters[0].Heros[0],
       playerTwo: characterData.characters[1].Villains[0],
     });
-    
-    this.setState({});
-    this.setState({})
   }
   // Functions 
   SelectPlayer = e =>{
@@ -74,12 +71,11 @@ class App extends Component {
     const setPlayer = this.state.villains.find(player => player.name === chosenPlayer);
     this.setState({playerOne: setPlayer})
   }
-}
+  }
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
-  computerPicksPlayer = e =>{
-    e.preventDefault();
+  computerPicksPlayer = () =>{
     const value = this.getRandomInt(4)
     if(this.state.playerOneIsHero){
       this.setState({playerTwo: this.state.villains[`${value}`]})
@@ -87,7 +83,11 @@ class App extends Component {
       this.setState({playerTwo: this.state.heros[`${value}`]})
     }
   }
-
+  moveToBattleArena = e =>{
+    e.preventDefault();
+    this.computerPicksPlayer();
+    this.props.history.push("/arena");
+  }
   toggleHeroOrVillain = e =>{
     console.log(e.target.name)
     if(e.target.name === "Evil"){
@@ -97,8 +97,6 @@ class App extends Component {
       this.setState({playerOneIsHero: true})
     }
   }
-
-
 
   render() {
     return (
@@ -113,7 +111,7 @@ class App extends Component {
             path="/select-character" 
             render={ () => 
             <SelectPlayer 
-            computerPicksPlayer={this.computerPicksPlayer}
+            moveToBattleArena={this.moveToBattleArena}
             SelectPlayer = {this.SelectPlayer}
             heros={this.state.heros}
             villains={this.state.villains}

@@ -19,7 +19,7 @@ class SelectPlayer extends React.Component{
                     <img src={this.props.playerOne.image} alt={`Profile image of ${this.props.playerOne.name}`}/>
                 </div>
                 <div>
-                    <button onClick={e => this.props.computerPicksPlayer(e)}>Ready for Battle!</button>
+                    <button onClick={e => this.props.moveToBattleArena(e)}>Ready for Battle!</button>
                 </div>
             </div>
         )
