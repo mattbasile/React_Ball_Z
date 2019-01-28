@@ -41,7 +41,6 @@ class App extends Component {
         healColor: '',
         healColorDark: '',
       },
-      onePlayer: true,
       twoPlayer: false,
       playerOneIsHero: true,
       characters:[],
@@ -122,7 +121,13 @@ class App extends Component {
             />}/>
             <Route 
             path="/arena" 
-            render={ () => <Arena />}/>
+            render={ () =>
+            <Arena 
+            twoPlayer ={this.state.twoPlayer}
+            playerOne={this.state.playerOne}
+            playerTwo={this.state.playerTwo}
+            />
+            }/>
             
         </header>
       </div>
