@@ -16,9 +16,11 @@ class App extends Component {
       playerOne: {
         name: "",
         health: null,
+        activeHealth: null,
         saiyanPwr: null,
         saiyanName: "",
         attackPwr: null,
+        currentPower: null,
         attackName: "",
         image: "",
         hits: null,
@@ -26,13 +28,16 @@ class App extends Component {
         secondColor: '',
         healColor: '',
         healColorDark: '',
+        saiyanMode: false,
       },
       playerTwo: {
         name: "",
         health: null,
+        activeHealth: null,
         saiyanPwr: null,
         saiyanName: "",
         attackPwr: null,
+        currentPower: null,
         attackName: "",
         image: "",
         hits: null,
@@ -40,6 +45,7 @@ class App extends Component {
         secondColor: '',
         healColor: '',
         healColorDark: '',
+        saiyanMode: false
       },
       twoPlayer: false,
       playerOneIsHero: true,
@@ -96,6 +102,30 @@ class App extends Component {
       this.setState({playerOneIsHero: true})
     }
   }
+  userAttack = (e, player) => {
+    e.preventDefault()
+    const attackPwr = player.currentPower;
+    const accuracy = this.getRandomInt(player.attackPwr);
+    if(accuracy > attackPwr/4){
+      this.setState(prevState => { return {playerTwo: { ...prevState.playerTwo, activeHealth: prevState.playerTwo.activeHealth - attackPwr } }})
+      this.setState(prevState => { return {playerOne: { ...prevState.playerOne, hits: ++prevState.playerOne.hits } }})
+      this.saiyanActivate(player);
+      if(player.saiyanMode === true && player.hits >= 3){
+        this.saiyanDeactivate()
+    }
+    } else{
+      alert('Attack has missed how unusual!')
+    }
+  }
+  saiyanActivate = player =>{
+    if(player.hits === 2){
+      this.setState(prevState => { return {playerOne: { ...prevState.playerOne, saiyanMode: true, currentPower: prevState.playerOne.saiyanPwr } }})
+    }
+  }
+  saiyanDeactivate = () =>{
+    this.setState(prevState => { return {playerOne: { ...prevState.playerOne, saiyanMode: false, hits: 0, currentPower: prevState.playerOne.attackPwr } }})
+  }
+
 
   render() {
     return (
@@ -123,6 +153,7 @@ class App extends Component {
             path="/arena" 
             render={ () =>
             <Arena 
+            userAttack={this.userAttack}
             twoPlayer ={this.state.twoPlayer}
             playerOne={this.state.playerOne}
             playerTwo={this.state.playerTwo}
